@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "C://Users//brantb//AppData//Local//conda//conda//envs//PyTorchE1//python.exe",
+    "python.autoComplete.extraPaths": [
+        "C:/local/PyTorchTesting/examples/fast_neural_style"
+    ]
+}

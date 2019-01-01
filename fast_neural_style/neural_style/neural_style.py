@@ -111,7 +111,7 @@ def train(args):
 
     # save model
     transformer.eval().cpu()
-    save_model_filename = "epoch_" + str(args.epochs) + "_" + str(time.ctime()).replace(' ', '_') + "_" + str(
+    save_model_filename = "epoch_" + str(args.epochs) + "_" + str(time.ctime()).replace(' ', '_').replace(':','_') + "_" + str(
         args.content_weight) + "_" + str(args.style_weight) + ".model"
     save_model_path = os.path.join(args.save_model_dir, save_model_filename)
     torch.save(transformer.state_dict(), save_model_path)
@@ -170,6 +170,17 @@ def stylize_onnx_caffe2(content_image, args):
 
 
 def main():
+
+
+    # main_file = R'C:\local\PyTorchTesting\examples\fast_neural_style\neural_style\neural_style.py'
+    # dataset_parent_dir = R'D:\local\coco'
+    # style_img = R'D:\local\coco\CocoSubset\000000000001.jpg'
+    # # save_model_dir = 'saved_models2'
+    # #save_model_dir = R'C:\local\PyTorchTesting\examples\saved_models2'
+    # save_model_dir = '.'
+
+    # sys.argv  = [main_file, 'train','--dataset', dataset_parent_dir, '--style-image', style_img,  R'--save-model-dir', save_model_dir, R'--epochs', '2', '--cuda', '1']
+
     main_arg_parser = argparse.ArgumentParser(description="parser for fast-neural-style")
     subparsers = main_arg_parser.add_subparsers(title="subcommands", dest="subcommand")
 
